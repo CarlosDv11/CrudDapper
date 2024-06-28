@@ -42,5 +42,12 @@ namespace CrudDapper.Controllers
             return Ok(user);
         }
 
+        [HttpPost]
+        public async Task<ActionResult<IEnumerable<User>>> CreateUser(User user)
+        {
+            IEnumerable<User> users = await _userInterface.CreateUser(user);
+            return Ok(users);
+        }
+
     }
 }

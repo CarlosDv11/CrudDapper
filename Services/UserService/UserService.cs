@@ -13,9 +13,15 @@ namespace CrudDapper.Services.UserService
             _configuration = configuration;
             getConnection = configuration.GetConnectionString("DefaultConnection");
         }
-        public Task<IEnumerable<User>> CreateUser(User user)
+        public async Task<IEnumerable<User>> CreateUser(User user)
         {
-            throw new NotImplementedException();
+            using (var con = new SqlConnection(getConnection)) 
+            {
+                var sql = "INSERT INTO dbo.Users (Users) values (@Users);";
+                await con.ExecuteAsync(sql, user);
+
+                return await con.QueryAsync<User>("select * from Users");
+            }
         }
 
         public Task<IEnumerable<User>> DeleteUser(int Userid)
