@@ -11,7 +11,7 @@ namespace CrudDapper.Controllers
     public class UserController : ControllerBase
     {
         private readonly IUserInterface _userInterface;
-        public UserController(IUserInterface userinterface) 
+        public UserController(IUserInterface userinterface)
         {
             _userInterface = userinterface;
         }
@@ -19,7 +19,7 @@ namespace CrudDapper.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<User>>> GetAllUsers()
         {
-            IEnumerable<User> users = await _userInterface.GetAllUsers();   
+            IEnumerable<User> users = await _userInterface.GetAllUsers();
 
             if (!users.Any())
             {
@@ -28,5 +28,19 @@ namespace CrudDapper.Controllers
 
             return Ok(users);
         }
+
+        [HttpGet("{userId}")]
+        public async Task<ActionResult<User>> GetUserById(int userId)
+        {
+            User? user = await _userInterface.GetUserById(userId);
+
+            if (user == null)
+            {
+                return NotFound("Registro não localizado!");
+            }
+
+            return Ok(user);
+        }
+
     }
 }

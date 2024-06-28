@@ -32,12 +32,17 @@ namespace CrudDapper.Services.UserService
             }
         }
 
-        public Task<User> GetById(int Userid)
+        public async Task<User?> GetUserById(int Userid)
         {
-            throw new NotImplementedException();
+            using (var con = new SqlConnection(getConnection))
+            {
+                var sql = "SELECT * FROM dbo.Users where id = @Id";
+                return await con.QueryFirstOrDefaultAsync<User>(sql, new { Id = Userid });
+                
+            }
         }
 
-        public Task<IEnumerable<User>> UpdateLivro(User user)
+        public Task<IEnumerable<User>> UpdateUser(User user)
         {
             throw new NotImplementedException();
         }
