@@ -24,9 +24,15 @@ namespace CrudDapper.Services.UserService
             }
         }
 
-        public Task<IEnumerable<User>> DeleteUser(int Userid)
+        public async Task<IEnumerable<User>> DeleteUser(int userId)
         {
-            throw new NotImplementedException();
+            using (var con = new SqlConnection(getConnection))
+            {
+                var sql = "delete from dbo.Users where id = @Id";
+                await con.ExecuteAsync(sql, new {Id =  userId});
+
+                return await con.QueryAsync<User>("select * from Users");
+            }
         }
 
         public async Task<IEnumerable<User>> GetAllUsers()
@@ -48,9 +54,15 @@ namespace CrudDapper.Services.UserService
             }
         }
 
-        public Task<IEnumerable<User>> UpdateUser(User user)
+        public async Task<IEnumerable<User>> UpdateUser(User user)
         {
-            throw new NotImplementedException();
+            using (var con = new SqlConnection(getConnection))
+            {
+                var sql = "update dbo.Users set Users = @Users where Id = @Id";
+                await con.ExecuteAsync(sql, user);
+
+                return await con.QueryAsync<User>("SELECT * FROM dbo.Users");
+            }
         }
     }
 }
