@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using CrudDapper.Models;
+using CrudDapper.Services.UserService;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CrudDapper.Controllers
@@ -7,5 +9,23 @@ namespace CrudDapper.Controllers
     [ApiController]
     public class UserController : ControllerBase
     {
+        private readonly IUserInterface _userInterface;
+        public UserController(IUserInterface userinterface) 
+        {
+            _userInterface = userinterface;
+        }
+
+        [HttpGet]
+        public async Task<ActionResult<IEnumerable<User>>> GetAllUsers()
+        {
+            IEnumerable<User> users = await _userInterface.GetAllUsers();   
+
+            if (!users.Any())
+            {
+                return NotFound("Nenhum registro localizado!");
+            }
+
+            return Ok(users);
+        }
     }
 }
