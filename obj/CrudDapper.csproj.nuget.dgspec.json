@@ -1,23 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Carlos\\source\\repos\\CrudDapper\\CrudDapper.csproj": {}
+    "C:\\Users\\carloseduardo\\source\\repos\\CrudDapper\\CrudDapper.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Carlos\\source\\repos\\CrudDapper\\CrudDapper.csproj": {
+    "C:\\Users\\carloseduardo\\source\\repos\\CrudDapper\\CrudDapper.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Carlos\\source\\repos\\CrudDapper\\CrudDapper.csproj",
+        "projectUniqueName": "C:\\Users\\carloseduardo\\source\\repos\\CrudDapper\\CrudDapper.csproj",
         "projectName": "CrudDapper",
-        "projectPath": "C:\\Users\\Carlos\\source\\repos\\CrudDapper\\CrudDapper.csproj",
-        "packagesPath": "C:\\Users\\Carlos\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Carlos\\source\\repos\\CrudDapper\\obj\\",
+        "projectPath": "C:\\Users\\carloseduardo\\source\\repos\\CrudDapper\\CrudDapper.csproj",
+        "packagesPath": "C:\\Users\\carloseduardo\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\carloseduardo\\source\\repos\\CrudDapper\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Carlos\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\carloseduardo\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [

@@ -1,42 +1,43 @@
 ﻿using CrudDapper.Models;
 using System.Data.SqlClient;
+using Dapper;
 
 namespace CrudDapper.Services.UserService
 {
-    public class UserService : IUserService
+    public class UserService : IUserInterface
     {
         private readonly IConfiguration _configuration;
         private readonly string getConnection;
-        public UserService(IConfiguration configuration) 
-        { 
+        public UserService(IConfiguration configuration)
+        {
             _configuration = configuration;
-            getConnection = _configuration.GetConnectionString("DefaultConnection");
+            getConnection = configuration.GetConnectionString("DefaultConnection");
         }
-
         public Task<IEnumerable<User>> CreateUser(User user)
         {
             throw new NotImplementedException();
         }
 
-        public Task<User> DeleteUser(int UserId)
+        public Task<IEnumerable<User>> DeleteUser(int Userid)
         {
             throw new NotImplementedException();
         }
 
-        public Task<IEnumerable<User>> GetAllUsers()
+        public async Task<IEnumerable<User>> GetAllUsers()
         {
-            using (var con = new SqlConnection())
+            using (var con = new SqlConnection(getConnection))
             {
-
+                var sql = "SELECT * FROM dbo.Users";
+                return await con.QueryAsync<User>(sql);
             }
         }
 
-        public Task<User> GetUserById(int UserId)
+        public Task<User> GetById(int Userid)
         {
             throw new NotImplementedException();
         }
 
-        public Task<User> UpdateUser(User user)
+        public Task<IEnumerable<User>> UpdateLivro(User user)
         {
             throw new NotImplementedException();
         }
