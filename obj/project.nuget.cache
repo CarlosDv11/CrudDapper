@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "hjuhFp5nA/I=",
+  "dgSpecHash": "/vLW5A1OTcc=",
   "success": true,
-  "projectFilePath": "C:\\Users\\carloseduardo\\source\\repos\\CrudDapper\\CrudDapper.csproj",
+  "projectFilePath": "C:\\Users\\carloseduardo\\Documents\\dasdsa\\CrudDapper\\CrudDapper.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\carloseduardo\\.nuget\\packages\\dapper\\2.1.35\\dapper.2.1.35.nupkg.sha512",
     "C:\\Users\\carloseduardo\\.nuget\\packages\\microsoft.extensions.apidescription.server\\6.0.5\\microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",

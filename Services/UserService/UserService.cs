@@ -15,7 +15,7 @@ namespace CrudDapper.Services.UserService
         }
         public async Task<IEnumerable<User>> CreateUser(User user)
         {
-            using (var con = new SqlConnection(getConnection)) 
+            using (var con = new SqlConnection(getConnection))
             {
                 var sql = "INSERT INTO dbo.Users (Users) values (@Users);";
                 await con.ExecuteAsync(sql, user);
@@ -29,7 +29,7 @@ namespace CrudDapper.Services.UserService
             using (var con = new SqlConnection(getConnection))
             {
                 var sql = "delete from dbo.Users where id = @Id";
-                await con.ExecuteAsync(sql, new {Id =  userId});
+                await con.ExecuteAsync(sql, new { Id = userId });
 
                 return await con.QueryAsync<User>("select * from Users");
             }
@@ -50,7 +50,7 @@ namespace CrudDapper.Services.UserService
             {
                 var sql = "SELECT * FROM dbo.Users where id = @Id";
                 return await con.QueryFirstOrDefaultAsync<User>(sql, new { Id = Userid });
-                
+
             }
         }
 
@@ -64,5 +64,22 @@ namespace CrudDapper.Services.UserService
                 return await con.QueryAsync<User>("SELECT * FROM dbo.Users");
             }
         }
+
+        public async Task<IEnumerable<UserAddressViewModel>> GetUserWithAddressById(int userId)
+        {
+
+            using (var con = new SqlConnection(getConnection))
+            {
+                var sql = @"
+                SELECT u.id, u.Users, a.rua, a.cidade, a.estado, a.cep
+                FROM dbo.Users u
+                INNER JOIN dbo.Address a ON u.id = a.user_id
+                WHERE u.id = @UserId";
+
+                return await con.QueryAsync<UserAddressViewModel>(sql, new { UserId = userId });
+            }
+
+        }
+
     }
 }

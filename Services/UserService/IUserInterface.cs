@@ -8,5 +8,7 @@ namespace CrudDapper.Services.UserService
         Task<IEnumerable<User>> CreateUser(User user);
         Task<IEnumerable<User>> UpdateUser(User user);
         Task<IEnumerable<User>> DeleteUser(int Userid);
+        Task<IEnumerable<UserAddressViewModel>> GetUserWithAddressById(int userId);
+
     }
 }

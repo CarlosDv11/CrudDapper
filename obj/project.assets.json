@@ -936,11 +936,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\carloseduardo\\source\\repos\\CrudDapper\\CrudDapper.csproj",
+      "projectUniqueName": "C:\\Users\\carloseduardo\\Documents\\dasdsa\\CrudDapper\\CrudDapper.csproj",
       "projectName": "CrudDapper",
-      "projectPath": "C:\\Users\\carloseduardo\\source\\repos\\CrudDapper\\CrudDapper.csproj",
+      "projectPath": "C:\\Users\\carloseduardo\\Documents\\dasdsa\\CrudDapper\\CrudDapper.csproj",
       "packagesPath": "C:\\Users\\carloseduardo\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\carloseduardo\\source\\repos\\CrudDapper\\obj\\",
+      "outputPath": "C:\\Users\\carloseduardo\\Documents\\dasdsa\\CrudDapper\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\carloseduardo\\AppData\\Roaming\\NuGet\\NuGet.Config",

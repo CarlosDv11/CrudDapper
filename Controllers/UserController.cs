@@ -81,5 +81,18 @@ namespace CrudDapper.Controllers
 
             return Ok(users);
         }
+
+        [HttpGet("user-with-address/{userId}")]
+        public async Task<ActionResult<IEnumerable<UserAddressViewModel>>> GetUserWithAddressById(int userId)
+        {
+            var usersWithAddress = await _userInterface.GetUserWithAddressById(userId);
+
+            if (usersWithAddress == null || !usersWithAddress.Any())
+            {
+                return NotFound("Registro não localizado!");
+            }
+
+            return Ok(usersWithAddress);
+        }
     }
 }
